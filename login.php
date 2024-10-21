@@ -6,15 +6,14 @@ session_start();
 $db = mysqli_connect('localhost', 'root', '', 'recipe');
 
 if (isset($_POST['submit'])) {
-
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    // Sanitize user inputs to avoid SQL injection (use prepared statements instead in the future)
+    // Sanitize user inputs to avoid SQL injection
     $email = mysqli_real_escape_string($db, $email);
-
     $password = mysqli_real_escape_string($db, $password);
-    // Prepare SQL query to fetch the user with the given email and password
+
+    // Prepare SQL query to fetch the user with the given email, password, and usertype
     $sql = "SELECT * FROM `registration` WHERE email='$email' AND password='$password'";
     $query = mysqli_query($db, $sql);
 
@@ -23,19 +22,25 @@ if (isset($_POST['submit'])) {
         // Fetch the row from the query result
         $row = mysqli_fetch_assoc($query);
 
-        // Set the session with the user's reg_id
+        // Set the session with the user's reg_id and usertype
         $_SESSION['reg_id'] = $row['reg_id'];
-        
-        // Redirect to index.php after successful login
-        header('Location: home.php');
+        $_SESSION['usertype'] = $row['usertype'];
+
+        // Redirect based on usertype
+        if ($row['usertype'] == 'admin') {
+            header('Location: admin_home.php'); // Redirect to the admin home page
+        } elseif ($row['usertype'] == 'user') {
+            header('Location: home.php'); // Redirect to the user home page
+        } else {
+            echo "<script>alert('Invalid user type');</script>";
+        }
         exit();
     } else {
         echo "<script>alert('Invalid email or password');</script>";
     }
 }
 ?>
-
-<!-- HTML part to display message -->
+!-- HTML part to display message -->
 <?php if (isset($message)) { echo "<p>$message</p>"; } ?>
 
 <!DOCTYPE html>
@@ -51,15 +56,16 @@ if (isset($_POST['submit'])) {
     <body class="login-body">
     <header>
         <div class="header-container">
-            <h1><i class="fas fa-utensils"></i> Recipe Sharing System</h1>
+            <h1><i class="fas fa-utensils"></i>Recipe On Board</h1>
             <nav>
                 <ul>
                     <li><a href="index.php">Home</a></li>
-                    <li><a href="recipes.html">Recipes</a></li>
+                    <li><a href="login.php">Recipes</a></li>
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="login.php">Upload Recipes</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    <li><a href="login.html">Log In</a></li>
+                    <li><a href="register.php">Register</a></li>
+                    <li><a href="login.php">Log In</a></li>
                 </ul>
             </nav>
         </div>

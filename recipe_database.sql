@@ -85,19 +85,26 @@ CREATE TABLE `registration` (
   `lastname` varchar(50) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
   `password` varchar(50) DEFAULT NULL,
+  `usertype` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`reg_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 /*Data for the table `registration` */
 
-insert  into `registration`(`reg_id`,`firstname`,`lastname`,`email`,`password`) values 
-(1,'alice','mv','alice@gmail.com','alice');
-insert  into `registration`(`reg_id`,`firstname`,`lastname`,`email`,`password`) values 
-(3,'ann','s','ann@gmail.com','ann');
-insert  into `registration`(`reg_id`,`firstname`,`lastname`,`email`,`password`) values 
-(4,'Ram','Krishna','ram@gmail.com','ram');
-insert  into `registration`(`reg_id`,`firstname`,`lastname`,`email`,`password`) values 
-(5,'sanal','ps','sanal@gmail.com','sanal');
+insert  into `registration`(`reg_id`,`firstname`,`lastname`,`email`,`password`,`usertype`) values 
+(1,'alice','mv','alice@gmail.com','alice','user');
+insert  into `registration`(`reg_id`,`firstname`,`lastname`,`email`,`password`,`usertype`) values 
+(3,'ann','s','ann@gmail.com','ann','user');
+insert  into `registration`(`reg_id`,`firstname`,`lastname`,`email`,`password`,`usertype`) values 
+(4,'Ram','Krishna','ram@gmail.com','ram','user');
+insert  into `registration`(`reg_id`,`firstname`,`lastname`,`email`,`password`,`usertype`) values 
+(5,'sanal','ps','sanal@gmail.com','sanal','user');
+insert  into `registration`(`reg_id`,`firstname`,`lastname`,`email`,`password`,`usertype`) values 
+(6,'admin','admin','admin@gmail.com','admin','admin');
+insert  into `registration`(`reg_id`,`firstname`,`lastname`,`email`,`password`,`usertype`) values 
+(7,'anu','lakshmi','anu@gmail.com','anu','user');
+insert  into `registration`(`reg_id`,`firstname`,`lastname`,`email`,`password`,`usertype`) values 
+(8,'akku','PS','akku@gmail.com','akku','user');
 
 /*Table structure for table `user_preferences` */
 
@@ -110,7 +117,7 @@ CREATE TABLE `user_preferences` (
   `selected_dietary` varchar(100) DEFAULT NULL,
   `selected_disliked` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`userp_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 /*Data for the table `user_preferences` */
 
@@ -124,6 +131,20 @@ insert  into `user_preferences`(`userp_id`,`reg_id`,`selected_cuisines`,`selecte
 (4,4,'Italian','Dairy-Free','Onion');
 insert  into `user_preferences`(`userp_id`,`reg_id`,`selected_cuisines`,`selected_dietary`,`selected_disliked`) values 
 (5,4,'Indian','Gluten-Free','Egg');
+insert  into `user_preferences`(`userp_id`,`reg_id`,`selected_cuisines`,`selected_dietary`,`selected_disliked`) values 
+(6,4,'Italian','Dairy-Free','Onion,Tomato');
+insert  into `user_preferences`(`userp_id`,`reg_id`,`selected_cuisines`,`selected_dietary`,`selected_disliked`) values 
+(7,1,'Indian','Dairy-Free',NULL);
+insert  into `user_preferences`(`userp_id`,`reg_id`,`selected_cuisines`,`selected_dietary`,`selected_disliked`) values 
+(8,1,'Italian','Gluten-Free','Onion');
+insert  into `user_preferences`(`userp_id`,`reg_id`,`selected_cuisines`,`selected_dietary`,`selected_disliked`) values 
+(9,1,'Italian','Gluten-Free','Tomato');
+insert  into `user_preferences`(`userp_id`,`reg_id`,`selected_cuisines`,`selected_dietary`,`selected_disliked`) values 
+(10,5,'Italian','Gluten-Free','Egg');
+insert  into `user_preferences`(`userp_id`,`reg_id`,`selected_cuisines`,`selected_dietary`,`selected_disliked`) values 
+(11,5,'Indian','Dairy-Free','Tomato');
+insert  into `user_preferences`(`userp_id`,`reg_id`,`selected_cuisines`,`selected_dietary`,`selected_disliked`) values 
+(12,5,'Indian','Dairy-Free','Onion');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

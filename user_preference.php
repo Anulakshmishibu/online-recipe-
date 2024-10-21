@@ -106,7 +106,7 @@ if ($currentPreferences && mysqli_num_rows($currentPreferences) > 0) {
             <h1><i class="fas fa-utensils"></i> Recipe On Board</h1>
             <nav>
                 <ul>
-                    <li><a href="#">Home</a></li>
+                    <li><a href="home.php">Home</a></li>
                     <li><a href="search.php">Search Recipes</a></li>
                     <li><a href="UploadRecipes.php">Upload Recipes</a></li>
                     <li><a href="rating.php">View Ratings</a></li>

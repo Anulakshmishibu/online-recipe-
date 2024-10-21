@@ -11,7 +11,7 @@ if(isset($_POST['submit']))
 			
 			
 			
-	$sql = "INSERT INTO `registration`(firstname,lastname,email,password) VALUES('$fname','$lname','$email','$password')";
+	$sql = "INSERT INTO `registration`(firstname,lastname,email,password,usertype) VALUES('$fname','$lname','$email','$password','user')";
 	$query=mysqli_query($db, $sql);
 	if($query)
 	{

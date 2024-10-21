@@ -51,12 +51,12 @@ mysqli_close($db);
         <h1><i class="fas fa-utensils"></i> Recipe Search</h1>
         <nav>
             <ul>
-                <li><a href="home.php">Home</a></li>
-                <li><a href="search.php">Search Recipes</a></li>
-                <li><a href="UploadRecipies.php">Upload Recipes</a></li>
-                <li><a href="rating.php">Rating</a></li>
-                <li><a href="view_preference.php">Saved Preference</a></li>
-                <li><a href="index.php">Log out</a></li>
+                    <li><a href="home.php">Home</a></li>
+                    <li><a href="search.php">Search Recipes</a></li>
+                    <li><a href="UploadRecipes.php">Upload Recipes</a></li>
+                    <li><a href="rating.php">View Ratings</a></li>
+                    <li><a href="view_preference.php">saved preference</a></li>
+                    <li><a href="index.php">Log Out</a></li>
             </ul>
         </nav>
     </div>

@@ -32,7 +32,7 @@ if (isset($_POST['submit'])) {
     if (move_uploaded_file($temp_name, $target)) {
         // SQL query to insert recipe data along with image path
         $sql = "INSERT INTO `recipes`(reg_id, recipename, description, ingredients,directions, image, cuisiens,dietary_restrictions) 
-                VALUES ('$reg_id', '$recipename', '$description', '$ingredients',''$directions, '$target', '$cuisiens', '$$dietary_restrictions')";
+                VALUES ('$reg_id', '$recipename', '$description', '$ingredients','$directions', '$target', '$cuisiens', '$dietary_restrictions')";
         $query = mysqli_query($db, $sql);
         
         if ($query) {
@@ -68,7 +68,7 @@ if (isset($_POST['submit'])) {
                 <li><a href="#">Upload Recipes</a></li>
                 <li><a href="rating.php">Rating</a></li>
                 <li><a href="view_preference.php">saved preference</a></li>
-                <li><a href="index.html">Log out</a></li>
+                <li><a href="index.php">Log out</a></li>
             </ul>
         </nav>
     </div>
